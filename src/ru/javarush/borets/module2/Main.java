@@ -1,25 +1,43 @@
 package ru.javarush.borets.module2;
 
-import ru.javarush.borets.module2.entity.Animal;
-import ru.javarush.borets.module2.entity.Bear;
-import ru.javarush.borets.module2.entity.Eagle;
-import ru.javarush.borets.module2.entity.Plant;
-import ru.javarush.borets.module2.entity.Wolf;
+import ru.javarush.borets.module2.entity.Alive;
+import ru.javarush.borets.module2.statistic.EntityCounter;
 import ru.javarush.borets.module2.field.Field;
-import ru.javarush.borets.module2.field.Spot;
-
+import ru.javarush.borets.module2.logger.Logger;
+import java.util.ArrayList;
 import java.util.Arrays;
 
+import static ru.javarush.borets.module2.factory.AnimalCreator.listOfAnimals;
+import static ru.javarush.borets.module2.field.Field.gameField;
+import static ru.javarush.borets.module2.lifeCycle.LifeCycle.liveDay;
+
 public class Main {
+    private static final Logger log = Logger.getINSTANCE();
 
     public static void main(String[] args) {
-        Field field = new Field();
-        field.getGameField();
-        Bear bear = new Bear();
-        System.out.println(bear);
 
+        Field field = new Field();
         field.initialField();
-        System.out.println(Arrays.deepToString(field.getGameField()));
+        field.printField();
+
+        EntityCounter.getStatistic((ArrayList<? extends Alive>) listOfAnimals);
+        System.out.println(listOfAnimals.size() + " entities started");
+
+        //System.out.println(gameField[1][1].size() + " before start ");
+        liveDay();
+
+
+
+
+
+
+
+        // AnimalFactory factory = new AnimalFactory();
+        //Alive animal = AnimalFactory.getRandomAnimal(factory);
+        // System.out.println(animal);
+
+        //TODO all statistic
+        //EntityCounter.getStatistic((ArrayList<? extends Alive>) listOfAnimals);
 
     }
 }

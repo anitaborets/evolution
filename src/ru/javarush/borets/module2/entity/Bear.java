@@ -1,31 +1,21 @@
 package ru.javarush.borets.module2.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
+import static ru.javarush.borets.module2.field.Field.gameField;
 
+@Getter
+@EqualsAndHashCode(callSuper = false)
 public class Bear extends Animal implements Predator {
-    double foodCount = START_FOOD_COUNT;
+
 
     public Bear() {
-        weight = 500;
-        speed = 2;
-        amountOfFood = 80;
-        eaten = false;
-        view = "Bear";
-    }
+        super(500, 2, 80, false, "Bear");
+           }
 
-    @Override
-    public String toString() {
-        return view;
-    }
-
-    @Override
-    public void move() {
-    }
 
     @Override
     public Alive reproduce() {
@@ -33,7 +23,7 @@ public class Bear extends Animal implements Predator {
     }
 
     @Override
-    public void eat(Herbivores herbivores) {
+    public String toString() {
+        return view;
     }
-
 }

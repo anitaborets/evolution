@@ -1,4 +1,4 @@
-package ru.javarush.borets.module2.entity;
+package ru.javarush.borets.module2;
 
 import java.util.EnumMap;
 
@@ -10,7 +10,6 @@ public enum Entities {
     DEER,
     DUCK,
     EAGLE,
-    FLYABLE,
     FOX,
     GOAT,
     HORSE,

@@ -9,21 +9,16 @@ public class Sheep extends Animal implements Herbivores {
     double foodCount = START_FOOD_COUNT;
 
     public Sheep() {
-        super(70, 3, 15, true, "\u1F40F");
+        super(70, 3, 15, true, "Sheep");
     }
-
-    @Override
-    public void move() {
-    }
-
 
     @Override
     public Alive reproduce() {
-        return null;
+        return new Sheep();
     }
 
     @Override
-    public void eatPlant(Plant plant) {
-
+    public String toString() {
+        return view;
     }
 }

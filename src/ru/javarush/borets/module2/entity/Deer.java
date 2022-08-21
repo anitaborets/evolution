@@ -4,26 +4,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
 public class Deer extends Animal implements Herbivores  {
     double foodCount = START_FOOD_COUNT;
 
     public Deer() {
-        super(300, 4, 50, true, "\tu1F98C");
+        super(300, 4, 50, true, "Deer");
     }
-
-    @Override
-    public void move() {
-    }
-
 
     @Override
     public Alive reproduce() {
-        return null;
+        return new Deer();
     }
 
     @Override
-    public void eatPlant(Plant plant) {
-
+    public String toString() {
+        return view;
     }
+
 }

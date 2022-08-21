@@ -9,21 +9,16 @@ public class Rabbit extends Animal implements Herbivores  {
     double foodCount = START_FOOD_COUNT;
 
     public Rabbit() {
-        super(2, 2, 0.45, true, "\u1F407");
+        super(2, 2, 0.45, true, "Rabbit");
     }
 
-    @Override
-    public void move() {
-    }
-
-
-    @Override
+     @Override
     public Alive reproduce() {
-        return null;
+        return new Rabbit();
     }
 
     @Override
-    public void eatPlant(Plant plant) {
-
+    public String toString() {
+        return view;
     }
 }

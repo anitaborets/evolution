@@ -2,28 +2,65 @@ package ru.javarush.borets.module2.field;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import ru.javarush.borets.module2.entity.Alive;
-import ru.javarush.borets.module2.entity.Boa;
-import ru.javarush.borets.module2.entity.Eagle;
-import ru.javarush.borets.module2.entity.Sheep;
-import ru.javarush.borets.module2.entity.Wolf;
+import ru.javarush.borets.module2.entity.Water;
+import ru.javarush.borets.module2.factory.AnimalCreator;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static ru.javarush.borets.module2.Constants.FIRST_ELEMENT;
+import static ru.javarush.borets.module2.Constants.WATER_AROUND_FIELD;
+import static ru.javarush.borets.module2.factory.AnimalCreator.getlistOfAnimals;
+import static ru.javarush.borets.module2.factory.AnimalCreator.listOfAnimals;
+import static ru.javarush.borets.module2.factory.MaxQuantity.putMaxQuantity;
+
 
 @Getter
 @Setter
-@ToString
 public class Field {
-    //private int sizeX = 5;
-    //private int sizeY = 5;
-    private Eagle[][] gameField = new Eagle[5][5];
+    private static int sizeX = 3;
+    private static int sizeY = 3;
 
-    public void initialField(){
-        gameField[1][1] = new Eagle();
-       // gameField[0][0] = new Spot(new Boa(),1,0);
-       // gameField[0][0] = new Spot(new Sheep(),2,0);
+    public static ArrayList<Alive>[][] gameField = new ArrayList[sizeX + WATER_AROUND_FIELD][sizeY + WATER_AROUND_FIELD];
+
+    public void initialField() {
+
+        ArrayList<Alive> water = new ArrayList<>();
+        water.add(new Water());
+        for (int i = 0; i < sizeY + WATER_AROUND_FIELD; i++) {
+            gameField[0][i] = water;
+        }
+        for (int i = 0; i < sizeX + WATER_AROUND_FIELD; i++) {
+            gameField[i][0] = water;
+        }
+        for (int i = 0; i < sizeY + WATER_AROUND_FIELD; i++) {
+            gameField[sizeX + 1][i] = water;
+        }
+        for (int i = 0; i < sizeX + WATER_AROUND_FIELD; i++) {
+            gameField[i][sizeY + 1] = water;
+        }
+
+        putMaxQuantity();
+        for (int i = 1; i < sizeX + 1; i++) {
+            for (int j = 1; j < sizeY + 1; j++) {
+                List<? super Alive> listOfAnimalsForEachSpot = getlistOfAnimals();
+                Collections.shuffle(listOfAnimalsForEachSpot);
+                gameField[i][j] = (ArrayList<Alive>) listOfAnimalsForEachSpot;
+            }
+        }
     }
 
+    public void printField() {
+        for (ArrayList<Alive>[] arrayLists : gameField) {
+            for (int j = 0; j < gameField[0].length; j++) {
+                if (!(arrayLists[j].isEmpty()))
+                    System.out.print(arrayLists[j].get(FIRST_ELEMENT) + "\t");
+                else System.out.printf("[ ]" + "\t");
+            }
+            System.out.print("\n");
+        }
+    }
 }
 

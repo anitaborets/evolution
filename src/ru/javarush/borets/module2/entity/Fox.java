@@ -10,21 +10,16 @@ public class Fox extends Animal implements Predator {
     double foodCount = START_FOOD_COUNT;
 
     public Fox() {
-        super(8, 2, 2, true, "\u1F98A");
+        super(8, 2, 2, true, "Fox");
     }
 
-    @Override
-    public void move() {
-    }
-
-
-    @Override
+        @Override
     public Alive reproduce() {
-        return null;
+        return new Fox();
     }
 
     @Override
-    public void eat(Herbivores herbivores) {
-
+    public String toString() {
+        return view;
     }
 }

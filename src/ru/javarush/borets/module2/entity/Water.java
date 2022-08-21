@@ -7,14 +7,15 @@ import lombok.Getter;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Getter
-public class Plant extends Alive {
-    private final double weight = 1;
-    private final String view = "\u2618";
-    private final boolean eaten = true;
+public class Water extends Alive {
+
+    //private final String view = "Yuck";
+    private final String view = "\u2652";;
+
 
     @Override
     public Alive reproduce() {
-        return new Plant();
+        return new Water();
     }
 
     @Override
