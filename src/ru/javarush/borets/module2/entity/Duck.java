@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Duck extends Animal implements Flyable,Herbivores {
+public class Duck extends Animal implements Flyable, Herbivores,Predator {
     double foodCount = START_FOOD_COUNT;
 
     public Duck() {

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jackson-all-1.8.3-openbd">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../jackson-all-1.8.3-openbd.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jackson-core-2.12.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jackson-mapper-asl-1.9.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

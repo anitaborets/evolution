@@ -4,26 +4,29 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.javarush.borets.module2.entity.Alive;
 import ru.javarush.borets.module2.entity.Water;
-import ru.javarush.borets.module2.factory.AnimalCreator;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static ru.javarush.borets.module2.Constants.FIRST_ELEMENT;
-import static ru.javarush.borets.module2.Constants.WATER_AROUND_FIELD;
+import static ru.javarush.borets.module2.Constants.*;
 import static ru.javarush.borets.module2.factory.AnimalCreator.getlistOfAnimals;
-import static ru.javarush.borets.module2.factory.AnimalCreator.listOfAnimals;
 import static ru.javarush.borets.module2.factory.MaxQuantity.putMaxQuantity;
 
 
 @Getter
 @Setter
 public class Field {
-    private static int sizeX = 3;
-    private static int sizeY = 3;
+    int sizeX;
+    int sizeY;
 
-    public static ArrayList<Alive>[][] gameField = new ArrayList[sizeX + WATER_AROUND_FIELD][sizeY + WATER_AROUND_FIELD];
+    public static ArrayList<Alive>[][] gameField;
+
+    public Field(int sizeX, int sizeY) {
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+        gameField = new ArrayList[sizeX + WATER_AROUND_FIELD][sizeY + WATER_AROUND_FIELD];
+    }
 
     public void initialField() {
 
@@ -57,7 +60,7 @@ public class Field {
             for (int j = 0; j < gameField[0].length; j++) {
                 if (!(arrayLists[j].isEmpty()))
                     System.out.print(arrayLists[j].get(FIRST_ELEMENT) + "\t");
-                else System.out.printf("[ ]" + "\t");
+                else System.out.print("[ ]" + "\t");
             }
             System.out.print("\n");
         }

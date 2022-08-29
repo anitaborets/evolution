@@ -10,7 +10,7 @@ public class Goat extends Animal implements Herbivores {
 
     public Goat() {
         super(60, 3, 10, true, "Goat");
-    }
+            }
 
 
     @Override

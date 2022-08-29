@@ -10,7 +10,7 @@ public class Sheep extends Animal implements Herbivores {
 
     public Sheep() {
         super(70, 3, 15, true, "Sheep");
-    }
+            }
 
     @Override
     public Alive reproduce() {

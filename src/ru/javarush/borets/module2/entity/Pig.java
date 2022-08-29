@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Pig extends Animal implements Herbivores {
+public class Pig extends Animal implements Herbivores, Predator {
 
     public Pig() {
         super(400, 2, 50, true, "Pig");

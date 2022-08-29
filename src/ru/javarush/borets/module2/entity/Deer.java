@@ -9,7 +9,7 @@ public class Deer extends Animal implements Herbivores  {
 
     public Deer() {
         super(300, 4, 50, true, "Deer");
-    }
+            }
 
     @Override
     public Alive reproduce() {

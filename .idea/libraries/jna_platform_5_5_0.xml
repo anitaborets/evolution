@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jna-platform-5.5.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../jna-platform-5.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jna-5.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../JColor-5.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -16,7 +16,6 @@ public class Buffalo extends Animal implements Herbivores {
         return new Buffalo();
     }
 
-
     @Override
     public String toString() {
         return view;

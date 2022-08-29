@@ -22,7 +22,7 @@ import ru.javarush.borets.module2.entity.Wolf;
 
 import java.util.Random;
 
-//class is not used temporary
+
 public class AnimalFactory {
 
     public Alive getAlive(Entities type) {
@@ -86,7 +86,8 @@ public class AnimalFactory {
         Entities type = Entities.values()[random.nextInt(Entities.values().length)];
         return factory.getAlive(type);
     }
-}
+
+   }
 
 
 

@@ -4,22 +4,21 @@ import ru.javarush.borets.module2.entity.Alive;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
-public class EntityCounter extends HashMap<Class<?>, Integer> {
+public class EntityCounterForMap extends HashMap<Class<?>, Integer> {
     private Class<?> baseType;
 
-    public EntityCounter(Class<?> baseType) {
+    public EntityCounterForMap(Class<?> baseType) {
         this.baseType = baseType;
     }
 
-    public static String getStatistic(ArrayList<? extends Alive> listOfAnimals) {
-        EntityCounter count = new EntityCounter(Alive.class);
+    public static HashMap<Class<?>, Integer> getStatisticForCalculation (ArrayList<? extends Alive> listOfAnimals) {
+        EntityCounterForMap count = new EntityCounterForMap(Alive.class);
         for (Object alive : listOfAnimals) {
             if (!(alive == null))
                 count.count((Alive) alive);
         }
-        return count.printStatistic();
+        return count;
 
     }
 
@@ -37,20 +36,6 @@ public class EntityCounter extends HashMap<Class<?>, Integer> {
         if (superClass != null && baseType.isAssignableFrom(superClass))
             countClass(superClass);
     }
-
-    private String printStatistic() {
-        StringBuilder result = new StringBuilder("{");
-        for (Map.Entry<Class<?>, Integer> pair : entrySet()) {
-            result.append(pair.getKey().getSimpleName());
-            result.append("=");
-            result.append(pair.getValue());
-            result.append(",");
-        }
-        result.delete(result.length() - 1, result.length());
-        result.append("}");
-        return result.toString();
-    }
-
 
 }
 

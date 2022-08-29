@@ -9,7 +9,7 @@ import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
 public abstract class Animal extends Alive implements Activity {
-    public static final int START_FOOD_COUNT = 1;
+    public static final int START_FOOD_COUNT = 0;
     public boolean isAte = false;
 
     double weight;

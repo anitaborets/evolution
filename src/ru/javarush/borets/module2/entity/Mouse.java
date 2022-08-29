@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-public class Mouse extends Animal implements Herbivores  {
+public class Mouse extends Animal implements Herbivores, Predator {
     double foodCount = START_FOOD_COUNT;
 
     public Mouse() {

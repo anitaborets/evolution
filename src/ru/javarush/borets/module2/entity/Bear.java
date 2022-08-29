@@ -11,11 +11,9 @@ import static ru.javarush.borets.module2.field.Field.gameField;
 @EqualsAndHashCode(callSuper = false)
 public class Bear extends Animal implements Predator {
 
-
     public Bear() {
         super(500, 2, 80, false, "Bear");
-           }
-
+    }
 
     @Override
     public Alive reproduce() {
